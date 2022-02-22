@@ -31,16 +31,21 @@ const getBlogContent = async () => {
     const posts = await getPosts(user);
     await getCommentsForEachPost(posts);
 
-    posts.forEach(post => {
-      content.innerHTML += `
-      <div class="post">
-        <h4>${post.title}</h4>
-        <p>${post.body}</p>
-        <br>
-        ${post.comments.map(c => `<p><span>${c.email}:</span>${c.body}</p>`).join('')}
-      </div>
-      `;
-    })
+const renderHtml = (user, posts) => {
+  const content = document.getElementById('content');
+  content.innerHTML += `<h3>Posts del usuario ${user.email}</h3>`;
+  
+  posts.forEach(post => {
+    content.innerHTML += `
+    <div class="post">
+      <h4>${post.title}</h4>
+      <p>${post.body}</p>
+      <br>
+      ${post.comments.map(c => `<p><span>${c.email}:</span>${c.body}</p>`).join('')}
+    </div>
+    `;
+  })
+}
   } catch (err) {
     console.log(err);
   }
