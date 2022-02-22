@@ -52,3 +52,7 @@ const renderHtml = (user, posts) => {
 }
 
 getBlogContent();
+
+const loadAdds = () => {
+  console.log("Adds loaded")
+}
