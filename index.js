@@ -58,6 +58,9 @@ const loadAdds = () => {
 }
 
 
+const affiliateRedirect = () => {
+
 // cambio 1
 // cambio 2
 // cambio 3
+}
